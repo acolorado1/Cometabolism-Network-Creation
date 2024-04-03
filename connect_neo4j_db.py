@@ -1,5 +1,4 @@
 from neo4j import GraphDatabase
-import create_network as CN
 class Neo4jConnection:
     
     def __init__(self, uri, user, pwd):
@@ -30,17 +29,4 @@ class Neo4jConnection:
                 session.close()
         return response
 
-import pandas as pd
-d = {'c_id': ['c01104', 'c00565'], 'name': ['TMAO', 'TMA'], 'origin': ['yellow', 'blue']}
-r = {'compound1':['c00565'], 'compound2':['c01104'], 'reaction': ['r02560'], 'KOs': ['K07811, K07812']}
-df = pd.DataFrame(data=d)
-rel_df  = pd.DataFrame(data=r)
-
-
-conn = Neo4jConnection(uri="neo4j+s://9a835c85.databases.neo4j.io", 
-                       user="neo4j",              
-                       pwd="jNhhyfucYQOhm1qXgcLb2gzC6EPZVh0esuzXmBVTUXs")
-
-#CN.add_compound(df, conn)
-CN.add_relationship(rel_df, conn)
 

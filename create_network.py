@@ -1,4 +1,3 @@
-# TODO: add node to graph 
 def add_compound(compounds, conn):
     # adds compound nodes to the neo4j graph
     query = '''
@@ -7,7 +6,6 @@ def add_compound(compounds, conn):
             '''
     return conn.query(query, parameters = {'rows':compounds.to_dict('records')})
 
-# TODO: add relationships between nodes 
 def add_relationship(relationships, conn):
     query = '''
             UNWIND $rows AS row
